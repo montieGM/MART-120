@@ -1,0 +1,7 @@
+body {
+	background: peachpuff;
+}
+.main {
+	padding-right: 250px;
+	padding-left: 250px;
+}
