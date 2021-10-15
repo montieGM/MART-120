@@ -3,6 +3,7 @@ This will be changed in accordance with future assignments. Enjoy it while you c
 
 body {
 	background: peachpuff;
+	--f1: Arial, Helvetica, sans-serif;
 }
 .main {
 	margin-right: 10%;
@@ -70,4 +71,18 @@ body {
 	content: "";
 	display: table;
 	clear: both;
+}
+#Link {
+	color: white;
+	background-color: purple;
+	text-decoration: none;
+	padding: 2px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+#introduction {
+	background-color: beige;
+	font-family: var(--f1);
+	padding: 5px;
+	border-radius: 3px;
 }
