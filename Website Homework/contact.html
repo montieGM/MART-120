@@ -3,6 +3,65 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script>
+		var check = false;
+		function yesBox(){
+			check = true;
+		}
+		function checkboxes(){
+			var firstName = document.getElementById("fName").value;
+			var lastName = document.getElementById("lName").value;
+			var email = document.getElementById("email").value;
+			var checkboxDoneInt = 0
+			if(firstName == ""){
+				document.getElementById("fName").style.backgroundColor = "red";
+				document.getElementById("fName").focus();
+			}
+			else {
+				checkboxDoneInt += 1;
+			}
+			if(lastName == ""){
+				if(firstName == ""){
+				}
+				else{
+					document.getElementById("lName").focus();
+				}
+				document.getElementById("lName").style.backgroundColor = "red";
+			}
+			else{
+				checkboxDoneInt += 1;
+			}
+			if(email == ""){
+				if(firstName == "" || lastName == ""){
+
+				}
+				else{
+					document.getElementById("email").focus();
+				}
+				document.getElementById("email").style.backgroundColor = "red";
+			}
+			else{
+				checkboxDoneInt += 1;
+			}
+			if(check){
+				checkboxDoneInt +=1;
+			}
+			if(checkboxDoneInt == 4){
+				window.alert(firstName + " " + lastName + "             Email: " + email);
+				
+				document.getElementById("fname").value = "";
+				document.getElementById("lname").value = "";
+				document.getElementById("email").value = "";
+
+				document.getElementById("fname").style.backgroundColor = "white";
+				document.getElementById("lname").style.backgroundColor = "white";
+				document.getElementById("email").style.backgroundColor = "white";
+			}
+
+		}
+
+
+	</script>
 </head>
 <body>
 <div class="main">
@@ -27,18 +86,17 @@
 		<p>Email: ivy.olson01@gmail.com</p>
 		<br>
 		<br>
-		<form action="nextPage.html" type="Post">
             Your Email: <input type="text" id="email"><br>
             First Name: <input type="text" id="fName"><br>
             Last Name: <input type="text" id="lName"><br>
             <p>Do you consent to be messaged about this website?</p>
-			<input type="radio" name="consent" value="yes">Yes<br>
+			<input type="radio" name="consent" value="yes" onclick="yesBox()">Yes<br>
 			<input type="radio" name="consent" value="no">No<br>
 
-            <button id="mySubmit" type="submit" class="btn btn-info">Submit</button>
-        </form>
+            <button class="btn btn-info" onclick="checkboxes()">Submit</button>
 	</div>
 
 <div>
 </body>
+	
 </html>
