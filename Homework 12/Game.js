@@ -13,6 +13,10 @@ var youWon = false;
 var obPlaced = false;
 var placeX = 0;
 var placeY = 0;
+var obX = [];
+var obY = [];
+var obD = [];
+var sinX = 0;
 
 //hatred hatred the syntax for this language is so loose i feel like im writing POETRY
 //Anyways heres some code
@@ -97,16 +101,27 @@ function placedObject(){
 }
 
 function setup(){
-	createCanvas(1280, 1000);
+  createCanvas(1280, 1000);
+  for(var i =0; i < 65; i++){
+    obX[i] = 10 * Math.max((2 * i),1);
+    obY[i] = 200;
+    obD[i] = 10; //* (2 * Math.sin(i));
+  }
 }
 
 function draw(){
-	background(0,255,255);
+  background(0,255,255);
   playerObject(playerX, playerY, 50)
   levelDraw()
   keyInput()
   gravityHandler()
-  wincheck()
+  obstacleMove()
+  winCheck()
+  for(var i = 0; i < obX.length; i++){
+    fill(255,0,0);
+    circle(obX[i], obY[i] + (20 * Math.sin(i + sinX)), obD[i]);
+  }
+  sinX = sinX + 0.1;
 }
 
 function keyPressed(){
